@@ -1,0 +1,49 @@
+* {
+    margin: 0em !important;
+    padding: 0em !important;
+}
+.jum {
+    background-color: rgb(177, 177, 160);
+    height: 200px;
+    color: white;
+}
+
+body {
+    background-color: rgb(245, 142, 8);
+}
+
+.lin {
+    color: white !important;
+    text-decoration: none;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.lnk > a{
+
+    color: #f0f4f7;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.lnk > a:hover {
+    color: seagreen;
+}
+
+.cont {
+    margin-top: 100px !important;
+    justify-content: center;
+    text-align: center;
+}
