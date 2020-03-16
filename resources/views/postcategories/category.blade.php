@@ -25,7 +25,7 @@
     <div class='card-body'>
        <!-- <div class='container'> -->
            <!-- <div class='row '> -->
-           <form action="{{url('/addCategory')}}" method="post">
+           <form action="{{url('/addCategory')}}" method="post" >
             @csrf
             <div class='form-group row'>
                 <label for="category" class='col-md-4 '>Category</label>

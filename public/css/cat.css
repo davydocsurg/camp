@@ -1,0 +1,40 @@
+.sect{
+    margin-top: 20px !important;
+}
+
+
+
+
+@media(max-width: 400px) {
+    .cont {
+        display: block !important;
+    }
+}
+
+@media(min-width: 400px) {
+    .cont {
+        display: flex !important;
+    }
+
+    .hori{
+        display: none !important;
+    }
+}
+
+.tain {
+    background-color:rgb(250, 248, 248) !important;
+    border-radius: 10px ;
+    border: 2px solid transparent;
+}
+
+body {
+    background-color: rgb(148, 144, 144);
+}
+
+.jumbotron {
+    background-color: rgb(255, 254, 254) !important;
+}
+
+.imag {
+    justify-content: center;
+}

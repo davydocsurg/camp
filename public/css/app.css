@@ -10882,3 +10882,33 @@ a.text-dark:focus {
   }
 }
 
+@media(max-width: 400px) {
+  .cont {
+      display: block !important;
+  }
+}
+
+@media(max-width: 800px), (min-width: 400px) {
+  .cont {
+      justify-content: center !important;
+  }
+}
+
+@media(min-width: 400px) {
+  .cont {
+      display: flex !important;
+  }
+
+  .hori{
+      display: none !important;
+  }
+}
+
+.imag {
+  max-width: 100%;
+
+}
+
+.imago {
+  justify-content: center;
+}

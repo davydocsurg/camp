@@ -26,3 +26,8 @@ Route::get('category', 'CategoryController@category')->middleware('auth');
 Route::post('addCategory', 'CategoryController@addCategory')->middleware('auth');
 Route::get('include', 'PostController@post')->middleware('auth');
 Route::post('/addPost', 'PostController@addPost')->middleware('auth');
+Route::get('/edit/{id}', 'PostController@edit')->middleware('auth');
+Route::post('/edit/{id}', 'PostController@editPost')->middleware('auth');
+Route::get('/delete/{id}', 'PostController@deletePost')->middleware('auth');
+Route::get('/view/{id}', 'PostController@view')->middleware('auth');
+// Route::get('/category/{id}', 'PostController@category')->middleware('auth');

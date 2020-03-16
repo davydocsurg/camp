@@ -60,7 +60,7 @@
                                 </ul>
                                 </ul>
                             
-                                <cite >Posted on: {{date('M,j,Y H:i', strtotime($post->updated_at))}}</cite>
+                                <small class="text-muted" >Posted on: {{date('M,j,Y H:i', strtotime($post->updated_at))}}</cite>
                         <!-- </div> -->
                                 
                                 <hr>

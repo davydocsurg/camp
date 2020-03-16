@@ -1,0 +1,171 @@
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1>Welcome To Campus Gist</h1>
+      <p class="lead  text-dark">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+      <!-- <p>
+        <a href="#" class="btn btn-primary my-2">Main call to action</a>
+        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+      </p> -->
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+    @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+             </div>
+    @endif
+    <!-- defined posts -->
+    <?php $posts = new App\Post; ?>
+
+      @if("count($posts) > 0")
+
+<!-- for each posts -->
+        @foreach($posts->all() as $post)
+            <div class="row">
+            <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+            <h4 class="card-title card-text-center card-header">{{ $post->post_title}}</h4>
+
+                <img src="{{ $post->post_image}}" alt="" style="height:14rem;" class="lazy">
+        
+
+                <div class="card-body">
+                <p class="card-text">{{ substr($post->post_body,0,150) }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                    <a href='{{url("/view/{$post->id}")}}' class="p-2">
+                        <span class="fas fa-binoculars" data-toggle="tooltip" data-placement="top" title="View post"></span>
+                    </a>
+
+                    <a href='{{url("/edit/{$post->id}")}}' class="p-2">
+                        <span class="fas fa-edit"  data-toggle="tooltip" data-placement="top" title="Edit post"></span>
+                    </a>
+
+                    <a href='{{url("/delete/{$post->id}")}}' class="p-2">
+                        <span class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete post"></span>
+                    </a>
+                    </div>
+                    <small class="text-muted">Posted on: {{date('M,j,Y H:i', strtotime($post->updated_at))}}</small>
+                </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        @endforeach
+
+      @else
+
+        <p>No posts found</p>
+      @endif
+     </div>
+  </div>
+
+</main>
+
+
+Footer
+<footer class="footer fixed-bottom">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Social buttons -->
+    <ul class="list-unstyled list-inline text-center">
+      <li class="list-inline-item">
+        <a class="btn-floating btn-fb mx-1">
+          <i class="fab fa-facebook-f"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-tw mx-1">
+          <i class="fab fa-twitter"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-gplus mx-1">
+          <i class="fab fa-google-plus-g"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-li mx-1">
+          <i class="fab fa-linkedin-in"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-dribbble mx-1">
+          <i class="fab fa-dribbble"> </i>
+        </a>
+      </li>
+    </ul>
+    <!-- Social buttons -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+
+  <!-- Copyright -->
+
+</footer>
+
+
+                            <ul class="nav nav-pils " style="float:right;">
+                                    <li role="presentation">
+                                       <a href='{{url("/like/{$post->id}")}}' class="p-2">
+                                            <span class="fas fa-heart">Like ({{$likeCtr}})</span>
+                                       </a>
+                                    </li>
+
+                                    <li role="presentation">
+                                    <a href='{{url("/dislike/{$post->id}")}}' class="p-2">
+                                            <span class="fa fa-thumbs-down">Dislike ({{$dislikeCtr}})</span>
+                                       </a>
+                                    </li>
+
+                                    <li role="presentation">
+                                    <a href='#' class="p-2">
+                                            <span class="fa fa-comment">comment</span>
+                                       </a>
+                                    </li>
+                                </ul>
+                                </ul>
+
+                            @endforeach
+
+                            @else
+                                <p>You dont have any Post</p>
+                            @endif
+                            <hr>
+                            <h5 class="text-center" style="color:#3490dc;">Comments</h5>
+                            <hr>
+                            @if(count($comments) > 0)
+
+                            @foreach($comments->all() as $comments)
+                            <div class="panel panel-primary" style="border:1px solid #3490dc;color:#3490dc; border-top-right-radius:12px; border-top-left-radius:12px;border-bottom-left-radius:12px">
+                            <p style="padding:3px"> {{ $comments->comments }}</p>
+                                <cite style="border-radius: 30px; border:1px #3490dc; padding: 3px;"> by {{ $comments->name }}</cite>
+                            </div>
+                                <hr>
+                            @endforeach
+
+                            @else
+                                <p>You dont have any Post</p>
+                            @endif
+
+                            <form action='{{ url("/comment/{$post->id}")}}' method="post">
+                            @csrf
+                            <div class="form-group">
+
+                            <div class="form-group">
+                                <textarea id="comment" rows="8" class="form-control" name="comment" required autocomplete="comment"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large btn-block" >
+                                  Comment
+                                </button>
+                            </form>
+                                                     </div>
