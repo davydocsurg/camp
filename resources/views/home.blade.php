@@ -154,17 +154,18 @@
 
 <!-- for each posts -->
         @foreach($posts->all() as $post)
-            <div class="container cont">
-            <div class="col-md-8">
+        <div class="row col-md-4">
+        <div class="container cont">
+            <!-- <div class="col-md-8"> -->
             <div class="card mb-4 shadow-sm">
             <h4 class="card-title card-text-center card-header">{{ $post->post_title}}</h4>
                 <img src="{{ $post->post_image}}" class="ml-3 mr-3 mt-4 mb-4 imag">
 
                 <div class="card-body">
-                <p class="card-text">{{ substr($post->post_body,0,150) }}</p>
+                <p class="card-text">{{ substr($post->post_body,0,50) }} ...</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                    <a href='{{url("/view/{$post->id}")}}' class="p-2 btn btn-sm btn-outline-secondary" type="button">
+                    <a href='{{url("/view/{$post->id}")}}' class="p-2 btn btn-sm btn-outline-secondary mr-4 fin" type="button">
                         <span class="fas fa-eye" data-toggle="tooltip" data-placement="top" title="Read More"> Read More</span>
                     </a>
                     @if(Auth::check())
@@ -179,12 +180,13 @@
                     @endif
                     
                     </div>
-                    <small class="text-muted">Posted on: {{date('M,j,Y H:i', strtotime($post->updated_at))}}</small>
+                    <small class="text-muted mr-3 txt">Posted on: {{date('M,j,Y H:i', strtotime($post->updated_at))}}</small>
                 </div>
                 </div>
+            <!-- </div> -->
             </div>
             </div>
-            </div>
+        </div>
         @endforeach
 
       @else

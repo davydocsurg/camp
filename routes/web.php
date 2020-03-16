@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
@@ -29,5 +29,5 @@ Route::post('/addPost', 'PostController@addPost')->middleware('auth');
 Route::get('/edit/{id}', 'PostController@edit')->middleware('auth');
 Route::post('/edit/{id}', 'PostController@editPost')->middleware('auth');
 Route::get('/delete/{id}', 'PostController@deletePost')->middleware('auth');
-Route::get('/view/{id}', 'PostController@view')->middleware('auth');
+Route::get('/view/{id}', 'PostController@view');
 // Route::get('/category/{id}', 'PostController@category')->middleware('auth');
