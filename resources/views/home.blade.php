@@ -112,7 +112,7 @@
   </div>
   <div class="navbar navbar-dark bg-dark shadow-sm fixed-top ">
     <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
+      <a href="{{ url('/home')}}" class="navbar-brand d-flex align-items-center">
         <!-- <svg xmlns="" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" 
         stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" 
         focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
@@ -128,7 +128,7 @@
 
 <main role="main">
 
-  <section class="jumbotron text-center mt-5">
+  <section class="jumbotron text-center mt-5 shadow-sm">
     <div class="container">
       <h1>Welcome To Campus Gist</h1>
       <p class="lead  text-dark">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
@@ -180,8 +180,9 @@
                     @endif
                     
                     </div>
-                    <small class="text-muted mr-3 txt">Posted on: {{date('M,j,Y H:i', strtotime($post->updated_at))}}</small>
                 </div>
+                <small class="text-muted mr-3 txt">Posted on: {{date('M,j,Y H:i', strtotime($post->updated_at))}}</small>
+
                 </div>
             <!-- </div> -->
             </div>
