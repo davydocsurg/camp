@@ -97,7 +97,7 @@
                 <a class="text-white" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                        document.getElementById('logout-form').submit();">
-                          {{ __('Logout') }}
+                          {{ __('Logout') }}<i class="far fa-sign-out"></i>
                 </a>
 
                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -154,7 +154,7 @@
 
 <!-- for each posts -->
         @foreach($posts->all() as $post)
-        <div class="row col-md-4">
+        <div class="rowl row col-md-4">
         <div class="container cont">
             <!-- <div class="col-md-8"> -->
             <div class="card mb-4 shadow-sm">

@@ -10888,7 +10888,7 @@ a.text-dark:focus {
       justify-content: center !important;
       
   }
-  .row {
+  .rowl {
     display: block !important;
 }
 }
@@ -10900,7 +10900,7 @@ a.text-dark:focus {
 }
 
 @media(min-width: 700px) {
-  .row {
+  .rowl{
       display: inline-flex !important;
   }
 }
