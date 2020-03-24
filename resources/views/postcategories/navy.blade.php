@@ -20,19 +20,23 @@
   <script src="{{asset('jquery/jquery.min.js')}}"></script>
   <script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
+  <script src="https://kit.fontawesome.com/6f3bcf9b28.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
 
-  <div class="d-flex" id="wrapper">
+  <div class="d-flex toggled" id="wrapper">
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading ">View Posts By Categories </div>
-      <div class="list-group list-group-flush">
+      <div class="sidebar-heading">View Posts By Categories </div>
+      <div class="list-group ">
       @if('count($categories) > 0')
         @foreach( $categories->all() as $category)
-         <li class="list-group-item"><a href='{{url("category/{$category->id}")}}'>{{$category->category}}</a></li>
+         <li class="list-group-item  shadow-sm mt-1">
+            <a href='{{url("category/{$category->id}")}}'>{{$category->category}}</a>
+         </li>
          @endforeach
       @else
         <p>No Category Found</p>
@@ -45,7 +49,7 @@
     <div id="page-content-wrapper">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">View Categories</button>
+        <button class="btn btn-info btn-sm" id="menu-toggle"><i class="fas fa-arrow-left"></i> View Categories</button>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -54,22 +58,29 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#"><i class="fab fa-twitter"></i> Campus Gist </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="#"><i class="fab fa-facebook"></i> Campus Gist</a>
             </li>
+            @if(Auth::check())
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
+              {{ Auth::user()->name }}
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                    </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
               </div>
             </li>
+            @endif
           </ul>
         </div>
       </nav>

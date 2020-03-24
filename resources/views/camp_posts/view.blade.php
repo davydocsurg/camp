@@ -83,7 +83,7 @@ body {
                             <div class="card-body">
                                 <p class="para">{{ $post->post_body }}</p>
 
-                                    <small class="text-muted">Posted on: {{date('M,j,Y H:i', strtotime($post->updated_at))}}</small>
+                                    <small class="text-muted">Posted on: {{date('M. j, Y H:i', strtotime($post->updated_at))}}</small>
 
                             @endforeach
 

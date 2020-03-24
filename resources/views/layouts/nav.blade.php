@@ -92,9 +92,21 @@ footer p {
         <div class="col-sm-4 offset-md-1 py-4">
           <h4 class="text-white">Contact</h4>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-white"><i class="fab fa-twitter"></i> Campus Gist</a></li>
+          <li><a href="#" class="text-white"><i class="fab fa-twitter"></i> Campus Gist</a></li>
             <li><a href="#" class="text-white"><i class="fab fa-facebook"> Campus Gist</i></a></li>
-            <!-- <li><a href="#" class="text-white">Email me</a></li> -->
+            @if(Auth::check())
+            <li class="text-white" >
+                <a class="text-white" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}<i class="far fa-sign-out"></i>
+                </a>
+
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                 </form>
+            </li>
+            @endif
           </ul>
         </div>
       </div>
