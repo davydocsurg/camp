@@ -31,3 +31,5 @@ Route::post('/edit/{id}', 'PostController@editPost')->middleware('auth');
 Route::get('/delete/{id}', 'PostController@deletePost')->middleware('auth');
 Route::get('/view/{id}', 'PostController@view');
 // Route::get('/category/{id}', 'PostController@category')->middleware('auth');
+Route::get('navy', 'CategoryController@navy');
+Route::get('/category/{id}', 'PostController@category');

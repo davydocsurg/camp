@@ -1,4 +1,4 @@
-@extends('layouts/nav')
+@extends('postcategories/navy')
 
 <style>
 
@@ -34,8 +34,8 @@ body {
     background-color: white !important;
 }
 
-.imag {
-    ;
+.postv {
+    max-width: 90% !important;
 }
 </style>
 
@@ -76,7 +76,7 @@ body {
                             <h2 class="mt-3 ml-4 mb-5">{{ $post->post_title}}</h2>
 
                             <div class="imag">
-                                <img src="{{ $post->post_image}}" class="ml-4" class="mb-4">
+                                <img src="{{ $post->post_image}}" class="ml-4 mb-4 postv" >
                             
                             </div>                        
 

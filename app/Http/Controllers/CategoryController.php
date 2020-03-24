@@ -18,4 +18,8 @@ class CategoryController extends Controller
         $category->save();
         return redirect('/category')->with('status', 'You have added to your categories table successfully');
     }
+
+    public function navy(){
+        return view('postcategories.navy');
+    }
 }

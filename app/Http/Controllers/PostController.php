@@ -92,15 +92,15 @@ class PostController extends Controller
         return redirect('/home')->with('status', 'Post discarded successfully');
     }
 
-    // public function category($cat_id){
-    //     $categories = Category::all();
-    //     $posts = DB::table('posts')
-    //             ->join('categories', 'posts.category_id', '=', 'categories.id')
-    //             ->select('posts.*', 'categories.*')
-    //             ->where(['categories.id' => $cat_id])
-    //             ->get();
+    public function category($cat_id){
+        $categories = Category::all();
+        $posts = DB::table('posts')
+                ->join('categories', 'posts.category_id', '=', 'categories.id')
+                ->select('posts.*', 'categories.*')
+                ->where(['categories.id' => $cat_id])
+                ->get();
     
     
-    //  return view('postcategories/categoriesposts', ['categories' => $categories, 'posts' => $posts ]);
-    // }
+     return view('postcategories/categoriesposts', ['categories' => $categories, 'posts' => $posts ]);
+    }
 }
