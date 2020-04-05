@@ -40,6 +40,7 @@ body {
 </style>
 
 @section('content')
+
             @if('count($posts) > 0')
 
                 @foreach($posts->all() as $post)

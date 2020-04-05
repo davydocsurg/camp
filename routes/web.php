@@ -33,3 +33,4 @@ Route::get('/view/{id}', 'PostController@view');
 // Route::get('/category/{id}', 'PostController@category')->middleware('auth');
 Route::get('navy', 'CategoryController@navy');
 Route::get('/category/{id}', 'PostController@category');
+// Route::post('/comment/{id}', 'PostController@comment');

@@ -29,9 +29,10 @@ class HomeController extends Controller
     public function index()
     {
         $user_id = Auth::user();
-        $posts = Post::all();
+        // $posts = Post::all();
         // $posts = Post::paginate(10);
         $posts = Post::latest()->get();
-        return view('home', ['post' => '$posts',]);
+        // $posts = Post::orderBy('created_at', 'desc');
+        return view('home', ['post' => $posts,]);
     }
 }

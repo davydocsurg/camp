@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 Use App\Post;
 use App\Category;
+use App\Comment;
 use DB;
 Use Auth;
 
@@ -103,4 +104,17 @@ class PostController extends Controller
     
      return view('postcategories/categoriesposts', ['categories' => $categories, 'posts' => $posts ]);
     }
+
+    // public function comment(Request $request, $post_id){
+    //     $this->validate($request, [
+    //         'comment' => 'required',
+    //      ]);
+    //      $user_id = Auth::user()->id;
+    //      $comments = new Comment;
+    //      $comments->user_id = Auth::user()->id;
+    //      $comments->post_id = $post_id;
+    //      $comments->comments = $request->comment;
+    //      $comments->save();
+    //      return redirect("/view/{$post_id}")->with('status', 'Comment Added sucessfully');
+    // }
 }

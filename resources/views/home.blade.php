@@ -75,11 +75,12 @@
   max-width: 40rem;
 }
 
+
     </style>
     <!-- Custom styles for this template -->
   </head>
   <body>
-    <header class="">
+    <header>
   <div class="collapse bg-dark fixed-top" id="navbarHeader">
     <div class="container">
       <div class="row">
@@ -153,17 +154,16 @@
       @if("count($posts) > 0")
 
 <!-- for each posts -->
-        @foreach($posts->all() as $post)
+        @foreach($posts->latest()->get() as $post)
         <div class="rowl row col-md-4">
         <div class="container cont">
             <!-- <div class="col-md-8"> -->
             <div class="card mb-4 shadow-sm">
             <h4 class="card-title card-text-center card-header">{{ $post->post_title}}</h4>
                 <img src="{{ $post->post_image}}" class="ml-3 mr-3 mt-4 mb-4 imag">
-
                 <div class="card-body">
                 <p class="card-text">{{ substr($post->post_body,0,50) }} ...</p>
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-centermb-4">
                     <div class="btn-group">
                     <a href='{{url("/view/{$post->id}")}}' class="p-2 btn btn-sm btn-outline-secondary mr-4 fin" type="button">
                         <span class="fas fa-eye" data-toggle="tooltip" data-placement="top" title="Read More"> Read More</span>
@@ -181,7 +181,7 @@
                     
                     </div>
                 </div>
-                <small class="text-muted mr-3 txt">Posted on: {{date('M,j,Y H:i', strtotime($post->updated_at))}}</small>
+                <small class=" text-primary mr-3 ">Posted on: {{date('M,j,Y H:i', strtotime($post->updated_at))}}</small>
 
                 </div>
             <!-- </div> -->
