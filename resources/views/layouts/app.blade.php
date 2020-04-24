@@ -23,7 +23,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                 Campus Gist
@@ -41,6 +41,30 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+
+                                          <!-- SEARCH FORM -->
+                        <div class="forsearch">
+                        <form class="form-inline" method="POST" action="{{ url('/search') }}" role="search">
+                        @csrf
+                        <div class="input-group input-group-sm">
+                            <input class="form-control form-control-navbar" value="" name="search" type="search" placeholder="Search Campus Gist" aria-label="Search">
+                            <div class="input-group-append">
+                            <button class="btn btn-navbar" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+
+                        <!-- <div class="input-group ml-auto">
+                        <form method="POST" action="{{ url('/search')}}">
+                          @csrf
+                          <input type="text" name="search" value="" class="form-control" placeholder="Search for">
+                        <span class="input-group-btn">   <button type="submit" name="button" class="btn btn-primary"><span><i class="fa fa-search"></i> </span> </button></span>
+                        </form>
+                      </div> -->
+                    </div>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

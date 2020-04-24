@@ -117,4 +117,13 @@ class PostController extends Controller
     //      $comments->save();
     //      return redirect("/view/{$post_id}")->with('status', 'Comment Added sucessfully');
     // }
+
+    public function search(Request $request){
+        // $user_id = Auth::user()->id;
+        // $search = Input::get('search');    
+        $keyword = $request->search;
+        $posts = Post::where('post_title', 'LIKE', '%'.$keyword.'%')
+        ->orWhere('post_body','LIKE','%'.$keyword.'%')->get();
+        return view("/search ",["keyword" => $keyword, "posts" => $posts]);
+    }
 }

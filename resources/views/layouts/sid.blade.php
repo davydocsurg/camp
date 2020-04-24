@@ -55,16 +55,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </ul>
 
     <!-- SEARCH FORM -->
-    <!-- <form class="form-inline ml-3">
+    <form class="form-inline ml-3" method="POST" action="{{ url('/home') }}">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control form-control-navbar" name="search" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
+          <button class="btn btn-navbar" type="submit" name="button">
             <i class="fas fa-search"></i>
           </button>
         </div>
       </div>
-    </form> -->
+    </form>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -79,7 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"> <i
             class="fas fa-th-large"></i> 
-            <i class="right fas fa-angle-left"></i>
+            <i class="right fas fa-angle-left"></i>View Categories
           </a>
       </li>
     </ul>
@@ -93,6 +93,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
+    <div class="sidebar-heading">View Posts By Categories </div>
+      <div class="list-group ">
+      @if('count($categories) > 0')
+        @foreach( $categories->all() as $category)
+         <li class="text-success mt-1">
+            <a href='{{url("category/{$category->id}")}}'  class="text-success">{{$category->category}}</a>
+         </li>
+         @endforeach
+      @else
+        <p>No Category Found</p>
+    @endif
+      </div>
       <!-- <a href="#">Account <i class="fas fa-cogs"></i></a>
       <hr>
                 <a class="" href="{{ route('logout') }}"

@@ -15,6 +15,8 @@
 
   <!-- Custom styles for this template -->
   <link href="{{asset('css/wel.css')}}" rel="stylesheet">
+  <link href="{{asset('js/app.css')}}" rel="stylesheet">
+
 
 <!-- scripts -->
   <script src="{{asset('jquery/jquery.min.js')}}"></script>
@@ -48,7 +50,7 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
 
         <button class="btn btn-info btn-sm" id="menu-toggle"><i class="fas fa-arrow-left"></i> View Categories</button>
 
@@ -57,10 +59,24 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="forsearch mt-3">
+                <!-- SEARCH FORM -->
+          <form class="form-inline ml-3" method="post" action="{{ url('/search') }}">
+          @csrf
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
             <li class="nav-item active">
-              <a class="nav-link" href="#" ><i class="fab fa-twitter"></i> </a>
+              <a class="nav-link" href="#"><i class="fab fa-twitter"></i> </a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="#"><i class="fab fa-facebook"></i></a>

@@ -60,6 +60,12 @@ body {
 
                 <div class='mb-3 mt-2 ml-4'>
                     <small class=" text-primary">Posted on: {{date('M j, Y  H:i', strtotime($post->updated_at))}}</small>
+                    @if(Auth::check())
+                                <small class=" float-right d-flex ed">
+                                    <a href='{{url("/edit/{$post->id}")}}' class="text-info ed">Edit</a>
+                                    <a href='{{url("/delete/{$post->id}")}}' class="text-danger ml-3 ed">Delete</a>
+                                </small>
+                                @endif
                 </div>
 
             </div>

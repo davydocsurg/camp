@@ -83,8 +83,13 @@ body {
                             <div class="card-body">
                                 <p class="para">{{ $post->post_body }}</p>
 
-                                    <small class="text-primary">Posted on: {{date('M. j, Y H:i', strtotime($post->updated_at))}}</small>
-
+                                <small class="text-primary">Posted on: {{date('M. j, Y H:i', strtotime($post->updated_at))}}</small>
+                                @if(Auth::check())
+                                <small class=" float-right d-flex ed">
+                                    <a href='{{url("/edit/{$post->id}")}}' class="text-info">Edit</a>
+                                    <a href='{{url("/delete/{$post->id}")}}' class="text-danger ml-3">Delete</a>
+                                </small>
+                                @endif
                             @endforeach
 
                             @else
