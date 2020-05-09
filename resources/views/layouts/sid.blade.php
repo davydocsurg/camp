@@ -14,21 +14,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Scripts -->
     <!-- jQuery -->
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('js/boot.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('js/ad.min.js')}}"></script>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{asset('js/boot.min.js')}}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{asset('js/ad.min.js')}}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/cat.css">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/sid.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cat.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sid.min.css') }}">   
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/util.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/6f3bcf9b28.js" crossorigin="anonymous"></script>
@@ -49,13 +51,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <strong>Campus Gist</strong>
       </a>
 
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ url('/home') }}" class="nav-link">Home</a>
-      </li>
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3" method="POST" action="{{ url('/home') }}">
+    <!-- <form class="form-inline ml-3" method="POST" action="{{ url('/home') }}">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" name="search" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -64,7 +63,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </button>
         </div>
       </div>
-    </form>
+    </form> -->
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -77,10 +76,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
      
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"> <i
-            class="fas fa-th-large"></i> 
-            <i class="right fas fa-angle-left"></i>View Categories
-          </a>
+        <a class="nav-link text-info" data-widget="control-sidebar" data-slide="true" href="#" role="button"> 
+          View Categories <i class="fas fa-th-large"></i> <i class="right fas fa-angle-left"></i>
+        </a>
       </li>
     </ul>
   </nav>
@@ -93,17 +91,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
-    <div class="sidebar-heading">View Posts By Categories </div>
-      <div class="list-group ">
-      @if('count($categories) > 0')
-        @foreach( $categories->all() as $category)
-         <li class="text-success mt-1">
-            <a href='{{url("category/{$category->id}")}}'  class="text-success">{{$category->category}}</a>
-         </li>
-         @endforeach
-      @else
-        <p>No Category Found</p>
-    @endif
+
+      <!-- Search Input -->
+        <div class="mt-4 mb-4">
+        <form class="form-inline" method="POST" action="{{ url('/search') }}" role="search">
+          @csrf
+          <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" value="" name="search" type="search" placeholder="Search Campus Gist" aria-label="Search">
+            <div class="input-group-append">
+            <button class="btn btn-navbar" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+            </div>
+          </div>
+        </form>
+        </div>
+      <!-- Search Input end -->
+
+
+    <div class="sidebar-heading hd">View Posts By Categories </div>
+      <div class="list-group ml-2">
+      <?php $categories = new App\Category; ?>
+        @if('count($categories) > 0')
+          @foreach( $categories->all() as $category)
+          <li class=" cati mt-1">
+              <a href='{{url("category/{$category->id}")}}'  class=" cati">{{$category->category}}</a>
+          </li>
+          @endforeach
+        @else
+          <p>No Category Found</p>
+        @endif
       </div>
       <!-- <a href="#">Account <i class="fas fa-cogs"></i></a>
       <hr>

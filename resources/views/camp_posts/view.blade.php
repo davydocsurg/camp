@@ -1,4 +1,4 @@
-@extends('postcategories/navy')
+@extends('layouts/sid')
 
 <style>
 
@@ -30,22 +30,22 @@ body {
     background-color: rgb(148, 144, 144);
 }
 
-.jumbotron {
-    background-color: white !important;
-}
-
 .postv {
     max-width: 90% !important;
 }
 </style>
 
 @section('content')
-<section class="jumbotron text-center shadow-sm">
+        <!-- <section class="jumbotron text-center mt-5 shadow-sm " style="background-image: url(image/campgrey.jpg);">
             <div class="container">
-            <h1>Welcome To Campus Gist</h1>
-            <p class="lead  text-dark">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+            <h1 class="text-light">Welcome To Campus Gist</h1>
+            <p class="lead  text-light">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+            <p>
+                <a href="#" class="btn btn-primary my-2">Contact Us</a>
+                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+            </p>
             </div>
-        </section>  
+        </section>   -->
 
             <!-- <div class="card mt-5">
                 <h4 class="card-header ">

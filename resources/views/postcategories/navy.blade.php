@@ -59,6 +59,11 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="{{ url('/home') }}" class="nav-link">Home</a>
+        </li>
+        
         <div class="forsearch mt-3">
                 <!-- SEARCH FORM -->
           <form class="form-inline ml-3" method="post" action="{{ url('/search') }}">
@@ -73,6 +78,7 @@
             </div>
           </form>
         </div>
+
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
             <li class="nav-item active">
@@ -84,7 +90,7 @@
 
             @if(Auth::check())
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{ Auth::user()->name }}
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

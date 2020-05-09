@@ -3,14 +3,14 @@
 @section('content')
 <main role="main">
 
-  <section class="jumbotron text-center mt-5 shadow-sm">
+  <section class="jumbotron text-center mt-5 shadow-sm " style="background-image: url(image/campgrey.jpg);">
     <div class="container">
-      <h1>Welcome To Campus Gist</h1>
-      <p class="lead  text-dark">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-      <!-- <p>
-        <a href="#" class="btn btn-primary my-2">Main call to action</a>
-        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-      </p> -->
+      <h1 class="text-light">Welcome To Campus Gist</h1>
+      <p class="lead  text-light">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+      <p>
+        <a href="#" class="btn btn-primary my-2">Contact Us</a>
+        <a href="#" class="btn btn-secondary my-2">Book Your Adverts</a>
+      </p>
     </div>
   </section>
 
@@ -55,7 +55,7 @@
                     
                     </div>
                 </div>
-                <small class=" text-primary mr-3 ">Posted on: {{date ('M,j,Y H:i', strtotime($post->updated_at))}}</small>
+                <small class=" text-primary mr-3 ">Posted on: {{date ('M j, Y | H:i', strtotime($post->updated_at))}}</small>
 
                 </div>
             <!-- </div> -->

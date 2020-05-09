@@ -1,4 +1,4 @@
-@extends('postcategories.navy')
+@extends('layouts.sid')
 
 <style>
 

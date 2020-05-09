@@ -1,14 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\URL;
-Use App\Post;
-use App\Category;
-use App\Comment;
-use DB;
-Use Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +20,11 @@ Route::get('/', function () {
     return view('home');
 });
 
-Auth::routes();
+Auth::routes([
+    'register' => false, // Registration Routes...
+    'reset' => false, // Password Reset Routes...
+    'verify' => false, // Email Verification Routes...
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('category', 'CategoryController@category')->middleware('auth');

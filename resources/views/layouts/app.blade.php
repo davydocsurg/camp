@@ -9,6 +9,9 @@
 
     <title>Campus Gist</title>
 
+    <!-- icons -->
+	<link rel="icon" type="image/png" href="image/favicon.ico"/>
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -19,6 +22,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/util.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/6f3bcf9b28.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -39,11 +44,11 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
 
                                           <!-- SEARCH FORM -->
-                        <div class="forsearch">
+                    <div class="forsearch">
                         <form class="form-inline" method="POST" action="{{ url('/search') }}" role="search">
                         @csrf
                         <div class="input-group input-group-sm">
@@ -55,25 +60,18 @@
                             </div>
                         </div>
                         </form>
-                        </div>
-
-                        <!-- <div class="input-group ml-auto">
-                        <form method="POST" action="{{ url('/search')}}">
-                          @csrf
-                          <input type="text" name="search" value="" class="form-control" placeholder="Search for">
-                        <span class="input-group-btn">   <button type="submit" name="button" class="btn btn-primary"><span><i class="fa fa-search"></i> </span> </button></span>
-                        </form>
-                      </div> -->
                     </div>
+
+                    <!-- </div> -->
                         @guest
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif -->
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -93,10 +91,10 @@
                                 </div>
                             </li>
                         @endguest
-                    </ul>
-                </div>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
         <main class="py-4">
             @yield('content')
