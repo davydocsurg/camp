@@ -166,7 +166,7 @@
     margin: 0 auto;
   }
   
-  .container-login100 {
+  .container-campgist {
     width: 100%;  
     min-height: 100vh;
     display: -webkit-box;
@@ -178,11 +178,11 @@
     justify-content: center;
     align-items: center;
     padding: 15px;
-    background: #ebeeef;
+    background: #b1b3b2;
   }
   
   
-  .wrap-login100 {
+  .wrap-campgist {
     width: 670px;
     background: #fff;
     border-radius: 10px;
@@ -192,7 +192,7 @@
   
   /*==================================================================
   [ Title form ]*/
-  .login100-form-title {
+  .campgist-form-title {
     width: 100%;
     position: relative;
     z-index: 1;
@@ -212,7 +212,7 @@
     padding: 70px 15px 74px 15px;
   }
   
-  .login100-form-title-1 {
+  .campgist-form-title-1 {
     font-family: Poppins-Bold;
     font-size: 30px;
     color: #fff;
@@ -221,7 +221,7 @@
     text-align: center;
   }
   
-  .login100-form-title::before {
+  .campgist-form-title::before {
     content: "";
     display: block;
     position: absolute;
@@ -237,7 +237,7 @@
   /*==================================================================
   [ Form ]*/
   
-  .login100-form {
+  .campgist-form {
     width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -247,22 +247,23 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 43px 88px 93px 190px;
+    background-color: rgb(248, 251, 252);
   }
   
   
   /*------------------------------------------------------------------
   [ Input ]*/
   
-  .wrap-input100 {
+  .wrap-campinput {
     width: 100%;
     position: relative;
     border-bottom: 1px solid #b2b2b2;
   }
   
-  .label-input100 {
-    font-family: Poppins-Regular;
+  .label-campinput {
+    font-family: fantasy;
     font-size: 15px;
-    color: #808080;
+    color: #020202;
     line-height: 1.2;
     text-align: right;
   
@@ -274,10 +275,9 @@
   }
   
   /*---------------------------------------------*/
-  .input100 {
-    font-family: Poppins-Regular;
+  .campinput {
+    font-family: 'Times New Roman';
     font-size: 15px;
-    color: #555555;
     line-height: 1.2;
   
     display: block;
@@ -286,7 +286,12 @@
     padding: 0 5px;
   }
   
-  .focus-input100 {
+.campinput::placeholder {
+    color: #020202;
+    font-style: italic;
+}
+
+  .focus-campinput {
     position: absolute;
     display: block;
     width: 100%;
@@ -296,7 +301,7 @@
     pointer-events: none;
   }
   
-  .focus-input100::before {
+  .focus-campinput::before {
     content: "";
     display: block;
     position: absolute;
@@ -315,16 +320,16 @@
   
   
   /*---------------------------------------------*/
-  input.input100 {
+  input.campinput {
     height: 45px;
   }
   
   
-  .input100:focus + .focus-input100::before {
+  .campinput:focus + .focus-campinput::before {
     width: 100%;
   }
   
-  .has-val.input100 + .focus-input100::before {
+  .has-val.campinput + .focus-campinput::before {
     width: 100%;
   }
   
@@ -381,7 +386,7 @@
   
   /*------------------------------------------------------------------
   [ Button ]*/
-  .container-login100-form-btn {
+  .container-campgist-form-btn {
     width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -391,7 +396,7 @@
     flex-wrap: wrap;
   }
   
-  .login100-form-btn {
+  .campgist-form-btn {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -416,7 +421,7 @@
     transition: all 0.4s;
   }
   
-  .login100-form-btn:hover {
+  .campgist-form-btn:hover {
     background-color: #333333;
   }
   
@@ -425,17 +430,17 @@
   [ Responsive ]*/
   
   @media (max-width: 576px) {
-    .login100-form {
+    .campgist-form {
       padding: 43px 15px 57px 117px;
     }
   }
   
   @media (max-width: 480px) {
-    .login100-form {
+    .campgist-form {
       padding: 43px 15px 57px 15px;
     }
   
-    .label-input100 {
+    .label-campinput {
       text-align: left;
       position: unset;
       top: unset;

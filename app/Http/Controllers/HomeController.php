@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use  Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Collection;
 use App\User;
 use App\Post;
 use Auth;
@@ -30,8 +30,8 @@ class HomeController extends Controller
     {
         $user_id = Auth::user();
         // $posts = Post::all();
-        // $posts = Post::paginate(10);
         $posts = Post::latest()->get();
+        $posts = Post::paginate(10);
         // $posts = Post::orderBy('created_at', 'desc');
         return view('home', ['post' => $posts,]);
     }

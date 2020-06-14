@@ -63,6 +63,22 @@ return [
             ]) : [],
         ],
 
+
+        // 'mysql' => [
+        //     'driver' => 'mysql',
+        //     'host' => 'db4free.net',
+        //     'port' => '3306',
+        //     'database' => 'blogge',
+        //     'username' => 'cyborg',
+        //     'password' =>'Phython08138',
+        //     'charset' => 'utf8mb4',
+        //     'collation' => 'utf8mb4_unicode_ci',
+        //     'prefix' => '',
+        //     'strict' => false,
+        //     'engine' => null,
+        // ],
+
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),

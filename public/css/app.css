@@ -10921,21 +10921,22 @@ a.text-dark:focus {
 @media(max-width: 400px) {
   .cont {
       display: contents !important;
-      justify-content: center !important;
+      /* justify-content: center !important; */
       
   }
   .rowl {
     display: block !important;
-}
-}
-
-@media(max-width: 700px), (min-width: 400px) {
-  .cont {
-      justify-content: center !important;
   }
 }
 
-@media(min-width: 700px) {
+
+@media(min-width: 992px) {
+  .rowl{
+      display: inline-flex !important;
+  }
+}
+
+@media(max-width: 992px), (min-width: 400px) {
   .rowl{
       display: inline-flex !important;
   }
@@ -10947,7 +10948,7 @@ a.text-dark:focus {
 
 .imag {
   max-width: 100%;
-
+  /* border-radius: 1em; */
 }
 
 .imago {
@@ -10964,4 +10965,17 @@ a.text-dark:focus {
   .forsearch {
     margin-top: 4px !important;
   }
+}
+
+.scrol {
+  float: right;
+}
+
+.srchbody {
+  font-weight: 700;
+  color: black;
+}
+
+.nopost {
+  height: 100rem !important;
 }

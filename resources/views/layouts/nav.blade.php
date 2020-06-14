@@ -82,7 +82,7 @@ footer p {
   </head>
   <body>
     <header>
-  <div class="collapse bg-dark fixed-top" id="navbarHeader">
+  <div class="collapse bg-dark " id="navbarHeader">
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
@@ -90,10 +90,27 @@ footer p {
           <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
+          <!-- <h4 class="text-white">Contact</h4>
           <ul class="list-unstyled">
           <li><a href="#" class="text-white"><i class="fab fa-twitter"></i> Campus Gist</a></li>
-            <li><a href="#" class="text-white"><i class="fab fa-facebook"> Campus Gist</i></a></li>
+            <li><a href="#" class="text-white"><i class="fab fa-facebook"> Campus Gist</i></a></li> -->
+
+
+                                          <!-- SEARCH FORM -->
+                                          <div class="forsearch">
+                        <form class="form-inline" method="POST" action="{{ url('/search') }}" role="search">
+                        @csrf
+                        <div class="input-group input-group-sm">
+                            <input class="form-control form-control-navbar" value="" name="search" type="search" placeholder="Search Campus Gist" aria-label="Search">
+                            <div class="input-group-append">
+                            <button class="btn btn-navbar" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+            
             @if(Auth::check())
             <li class="text-white" >
                 <a class="text-white" href="{{ route('logout') }}"
@@ -112,7 +129,7 @@ footer p {
       </div>
     </div>
   </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm fixed-top">
+  <div class="navbar navbar-dark bg-dark shadow-sm ">
     <div class="container d-flex justify-content-between">
       <a href="{{ url('/home')}}" class="navbar-brand d-flex align-items-center">
         <!-- <svg xmlns="" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" 

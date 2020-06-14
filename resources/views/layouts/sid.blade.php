@@ -11,13 +11,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <title> Campus Gist | Blog Posts</title>
 
+    <!-- icons -->
+    <link rel="icon" type="image/png" href="image/favicon.ico"/>
 
     <!-- Scripts -->
     <!-- jQuery -->
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{asset('js/boot.min.js')}}"></script>
-    <!-- AdminLTE App -->
     <script src="{{asset('js/ad.min.js')}}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -76,7 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
      
       </li>
       <li class="nav-item">
-        <a class="nav-link text-info" data-widget="control-sidebar" data-slide="true" href="#" role="button"> 
+        <a class="nav-link vcat" data-widget="control-sidebar" data-slide="true" href="#" role="button"> 
           View Categories <i class="fas fa-th-large"></i> <i class="right fas fa-angle-left"></i>
         </a>
       </li>
@@ -88,7 +89,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
    
 
   <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
+  <aside class="control-sidebar control-sidebar-dark shadow-lg">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
 
@@ -114,7 +115,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <?php $categories = new App\Category; ?>
         @if('count($categories) > 0')
           @foreach( $categories->all() as $category)
-          <li class=" cati mt-1">
+          <li class=" mt-1">
               <a href='{{url("category/{$category->id}")}}'  class=" cati">{{$category->category}}</a>
           </li>
           @endforeach
@@ -138,7 +139,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </aside>
   <!-- /.control-sidebar -->
 
-  <!-- Main Footer -->
         <main class="py-4">
             @yield('content')
         </main>
@@ -147,9 +147,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 <!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
 
 </body>
 </html>

@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<hr>
+<hr>
+<hr>
 <div class='container'>
     <div class='row justify-content-center'>
         <div class='col-md-8'>
@@ -76,7 +79,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary btn-md">
-                                    Publish
+                                    Add Post
                                 </button>
 
                             </div>

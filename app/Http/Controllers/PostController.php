@@ -98,11 +98,9 @@ class PostController extends Controller
         $posts = DB::table('posts')
                 ->join('categories', 'posts.category_id', '=', 'categories.id')
                 ->select('posts.*', 'categories.*')
-                ->where(['categories.id' => $cat_id])
-                ->get();
-    
-    
-     return view('postcategories/categoriesposts', ['categories' => $categories, 'posts' => $posts ]);
+                ->where(['categories.id' => $cat_id])->get();
+                
+        return view('postcategories/categoriesposts', ['categories' => $categories, 'posts' => $posts ]);
     }
 
     // public function comment(Request $request, $post_id){
@@ -123,7 +121,7 @@ class PostController extends Controller
         // $search = Input::get('search');    
         $keyword = $request->search;
         $posts = Post::where('post_title', 'LIKE', '%'.$keyword.'%')
-        ->orWhere('post_body','LIKE','%'.$keyword.'%')->get();
+        ->orWhere('post_body','LIKE','%'.$keyword.'%')->latest()->get();
         return view("/search ",["keyword" => $keyword, "posts" => $posts]);
     }
 }

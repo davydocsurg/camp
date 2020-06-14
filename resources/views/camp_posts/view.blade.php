@@ -31,7 +31,7 @@ body {
 }
 
 .postv {
-    max-width: 90% !important;
+    max-width: 92% !important;
 }
 </style>
 
@@ -68,38 +68,45 @@ body {
 <!-- <hr class="hori"><hr class="hori"> -->
               
                    
-                        <div class="container mt-5 col-md-6 tain shadow-lg" >
-                            <!-- <div class="row"> -->
-                            @if(count($posts) > 0)
+<!-- <div> -->
+        @if(count($posts) > 0)
 
-                            @foreach($posts->all() as $post)
-                            <h2 class="mt-3 ml-4 mb-5">{{ $post->post_title}}</h2>
+			@foreach($posts->all() as $post)
+            <div class="container mt-5 col-md-6 tain shadow-lg" >
 
-                            <div class="imag">
-                                <img src="{{ $post->post_image}}" class="ml-4 mb-4 postv" >
-                            
-                            </div>                        
+                <h2 class="mt-3 ml-4 mb-5">{{ $post->post_title}}</h2>
 
-                            <div class="card-body">
-                                <p class="para">{{ $post->post_body }}</p>
+                <!-- <div class="imag"> -->
+                    <img src="{{ $post->post_image}}" class="ml-4 mb-4 postv" >
+                <!-- </div> -->
 
-                                <small class="text-primary">Posted on: {{date('M. j, Y H:i', strtotime($post->updated_at))}}</small>
-                                @if(Auth::check())
-                                <small class=" float-right d-flex ed">
-                                    <a href='{{url("/edit/{$post->id}")}}' class="text-info">Edit</a>
-                                    <a href='{{url("/delete/{$post->id}")}}' class="text-danger ml-3">Delete</a>
-                                </small>
-                                @endif
-                            @endforeach
+                <!-- <div class=""> -->
+                    <p class="para mx-4 srchbody">{{ $post->post_body }}</p>
+                <!-- </div> -->
+                <hr>
+                <div class='mb-3 mt-2 ml-4'>
+                    <small class=" text-muted">Posted on: {{date('M j, Y  H:i', strtotime($post->updated_at))}}</small>
+                    @if(Auth::check())
+                        <small class=" float-right d-flex ed">
+                            <a href='{{url("/edit/{$post->id}")}}' class="text-info ed">Edit</a>
+                            <a href='{{url("/delete/{$post->id}")}}' class="text-danger ml-3 ed">Delete</a>
+                        </small>
+                    @endif
+                </div>
 
-                            @else
+            </div>
+            @endforeach
 
-                            <div class="container">
-                                <p>Not a post</p>
-                            </div>
+            @else
 
-                            @endif
-                            </div>
-                        </div>
+                <div class="container">
+                    <p>Not a post</p>
+                </div>
+
+        @endif
+</div>
+    <div class="mr-4 scrol">
+        <a href="#" class="btn btn-primary btn-sm my-2"> Scroll to Top </a>
+    </div>
 
 @endsection

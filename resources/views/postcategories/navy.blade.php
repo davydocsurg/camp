@@ -15,6 +15,7 @@
 
   <!-- Custom styles for this template -->
   <link href="{{asset('css/wel.css')}}" rel="stylesheet">
+  <link href="{{asset('css/app.css')}}" rel="stylesheet">
   <link href="{{asset('js/app.css')}}" rel="stylesheet">
 
 
