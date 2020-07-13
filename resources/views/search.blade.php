@@ -53,7 +53,8 @@
 
           @else
           <div class="container nopost">
-              <h2>No search results found, Click on "View Categories" to select post categories. </h2>
+              <h2>No search results found. </h2>
+              <h5>Try another search or Click on "View Categories" to select post categories.</h5>
           </div>
         @endif
     </div>
